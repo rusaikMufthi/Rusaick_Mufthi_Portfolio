@@ -47,7 +47,7 @@ export function About() {
                 }`}
               >
                 {/* --- FRONT SIDE --- */}
-                <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-between backface-hidden bg-gradient-to-b from-white to-[#f4f2ee] rounded-3xl">
+                <div className="credential-card-front absolute inset-0 p-6 sm:p-8 flex flex-col justify-between backface-hidden bg-gradient-to-b from-white to-[#f4f2ee] rounded-3xl">
                   {/* Card Header */}
                   <div className="flex items-center justify-between border-b border-[#0d0d0d]/10 pb-4">
                     <div className="flex items-center gap-2">

@@ -18,35 +18,54 @@ export function useReducedMotion(): boolean {
   return matches;
 }
 
-export function useActiveSection(sectionIds: string[]): string {
+export function useActiveSection(sectionIds: string[]): [string, (id: string) => void] {
   const [activeId, setActiveId] = useState<string>('');
 
   useEffect(() => {
     if (typeof window === 'undefined' || !sectionIds.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      {
-        rootMargin: '-20% 0px -60% 0px',
-        threshold: 0.1,
+    const cleanIds = sectionIds.map((id) => id.replace('#', ''));
+
+    const handleScroll = () => {
+      // Check if user is scrolled to the very bottom of the page
+      const isBottom =
+        window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80;
+
+      if (isBottom) {
+        setActiveId(cleanIds[cleanIds.length - 1]);
+        return;
       }
-    );
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id.replace('#', ''));
-      if (el) observer.observe(el);
-    });
+      // Check if user is at the top in the hero section
+      if (window.scrollY < 200) {
+        setActiveId('');
+        return;
+      }
 
-    return () => observer.disconnect();
+      // Calculate scroll position with offset for header
+      const scrollPosition = window.scrollY + 240;
+
+      // Scan backwards from bottom to top to find current section
+      for (let i = cleanIds.length - 1; i >= 0; i--) {
+        const id = cleanIds[i];
+        const element = document.getElementById(id);
+        if (element) {
+          const top = element.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveId(id);
+            return;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [sectionIds]);
 
-  return activeId;
+  return [activeId, setActiveId];
 }
 
 export function useScrollProgress(): number {

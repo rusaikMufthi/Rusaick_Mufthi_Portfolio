@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { NAV_ITEMS, PROFILE } from '@/lib/data';
 import { useActiveSection, useScrollProgress } from '@/lib/hooks';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { Menu, X, ArrowDownRight, Shield } from 'lucide-react';
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const sectionIds = NAV_ITEMS.map((item) => item.href);
-  const activeSection = useActiveSection(sectionIds);
+  const [activeSection, setActiveSection] = useActiveSection(sectionIds);
   const scrollProgress = useScrollProgress();
 
   useEffect(() => {
@@ -63,6 +64,7 @@ export function Navigation() {
           {/* Brand Logo & Name with Portrait Image */}
           <a
             href="#hero"
+            onClick={() => setActiveSection('')}
             className="flex items-center gap-3 group focus:outline-none"
             aria-label="Home - Mohamed Rusaick Mufthi"
           >
@@ -92,11 +94,13 @@ export function Navigation() {
             className="hidden lg:flex items-center gap-1 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 shadow-inner"
           >
             {NAV_ITEMS.map((item) => {
-              const isActive = activeSection === item.href.replace('#', '');
+              const cleanId = item.href.replace('#', '');
+              const isActive = activeSection === cleanId;
               return (
                 <a
                   key={item.href}
                   href={item.href}
+                  onClick={() => setActiveSection(cleanId)}
                   className={`relative px-3.5 py-1.5 text-xs font-mono-tech transition-all duration-200 rounded-full ${
                     isActive
                       ? 'text-[#0d0d0d] font-bold bg-emerald-400 shadow-sm'
@@ -110,7 +114,10 @@ export function Navigation() {
           </nav>
 
           {/* Right Action Button & Mobile Toggle */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
+            {/* Theme Toggle Button */}
+            <ThemeToggle />
+
             <a
               href={PROFILE.resumeUrl}
               download="Rusaick_Mufthi_CyberSecurity_CV.pdf"
@@ -147,12 +154,16 @@ export function Navigation() {
             </p>
             <nav className="flex flex-col gap-4">
               {NAV_ITEMS.map((item) => {
-                const isActive = activeSection === item.href.replace('#', '');
+                const cleanId = item.href.replace('#', '');
+                const isActive = activeSection === cleanId;
                 return (
                   <a
                     key={item.href}
                     href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => {
+                      setActiveSection(cleanId);
+                      setMobileMenuOpen(false);
+                    }}
                     className="group flex items-center justify-between py-2.5 border-b border-white/10"
                   >
                     <div className="flex items-center gap-4">
@@ -177,7 +188,10 @@ export function Navigation() {
           <div className="pt-8 border-t border-white/10 flex flex-col gap-4">
             <div className="flex justify-between items-center text-xs font-mono-tech text-[#a9a6a0]">
               <span>{PROFILE.location}</span>
-              <span className="text-emerald-400">{PROFILE.status}</span>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] uppercase">Theme:</span>
+                <ThemeToggle showLabel className="px-3 py-1" />
+              </div>
             </div>
             <a
               href={PROFILE.resumeUrl}

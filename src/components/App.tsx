@@ -13,7 +13,7 @@ import { Contact } from '@/components/sections/Contact';
 
 export function App() {
   return (
-    <div className="relative min-h-screen bg-[#f4f2ee] text-[#0d0d0d] font-sans antialiased">
+    <div className="relative min-h-screen bg-[#f4f2ee] dark:bg-[#090b0e] text-[#0d0d0d] dark:text-[#f4f2ee] font-sans antialiased transition-colors duration-200">
       <Navigation />
       <main>
         <Hero />
