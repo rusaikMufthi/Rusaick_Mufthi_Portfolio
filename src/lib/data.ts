@@ -24,6 +24,7 @@ export interface Certification {
   name: string;
   issuer: string;
   category: 'Security' | 'AI & ML' | 'Software & Cloud';
+  credentialUrl?: string;
 }
 
 export interface EducationItem {
@@ -252,6 +253,20 @@ export const PROJECTS: Project[] = [
 ];
 
 export const CERTIFICATIONS: Certification[] = [
+  {
+    id: "c-cisco-cybersecurity",
+    name: "Introduction to Cybersecurity",
+    issuer: "Cisco Networking Academy",
+    category: "Security",
+    credentialUrl: "https://www.credly.com/badges/cd65079f-76f5-4542-9218-233993910261",
+  },
+  {
+    id: "c-cisco-networking",
+    name: "Networking Basics",
+    issuer: "Cisco Networking Academy",
+    category: "Security",
+    credentialUrl: "https://www.credly.com/badges/2c229842-2b95-49b9-ac84-cadf5cccba45",
+  },
   { id: "c1", name: "AI for Cybersecurity", issuer: "LinkedIn Learning", category: "Security" },
   { id: "c2", name: "Cyber Security", issuer: "Simplilearn", category: "Security" },
   { id: "c3", name: "Ethical AI Foundations", issuer: "Sololearn", category: "Security" },
