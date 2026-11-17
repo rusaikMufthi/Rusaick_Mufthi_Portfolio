@@ -3,6 +3,15 @@
 import { CERTIFICATIONS } from '@/lib/data';
 import { Award, ArrowUpRight, ShieldCheck, Sparkles, Code2, CheckCircle2, ExternalLink } from 'lucide-react';
 
+const getCredentialProvider = (url?: string) => {
+  if (!url) return null;
+  if (url.includes('credly.com')) return 'Credly Verified';
+  if (url.includes('theforage.com')) return 'Forage Verified';
+  if (url.includes('linkedin.com')) return 'LinkedIn Verified';
+  if (url.includes('udacity.com')) return 'Udacity Verified';
+  return 'Verified Credential';
+};
+
 export function Certifications() {
   return (
     <section id="certifications" className="section-padding bg-[#f4f2ee] relative">
@@ -18,7 +27,7 @@ export function Certifications() {
             </h2>
           </div>
           <p className="text-sm font-mono-tech text-[#77756f] max-w-md mt-4 md:mt-0">
-            Professional certifications and accredited course completions in Cyber Security, Computer Networks, Machine Learning, and Software Engineering.
+            Professional certifications and accredited course completions in Cyber Security, Computer Networks, Machine Learning, and Cloud Architecture.
           </p>
         </div>
 
@@ -28,13 +37,14 @@ export function Certifications() {
             const isSecurity = cert.category === 'Security';
             const numStr = (index + 1).toString().padStart(2, '0');
             const hasCredential = Boolean(cert.credentialUrl);
+            const providerLabel = getCredentialProvider(cert.credentialUrl);
             const Component = hasCredential ? 'a' : 'div';
             const linkProps = hasCredential
               ? {
                   href: cert.credentialUrl,
                   target: '_blank',
                   rel: 'noopener noreferrer',
-                  'aria-label': `View ${cert.name} verified credential on Credly (opens in new tab)`,
+                  'aria-label': `View ${cert.name} verified credential (opens in new tab)`,
                 }
               : {};
 
@@ -58,7 +68,7 @@ export function Certifications() {
                       {hasCredential && (
                         <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono-tech uppercase font-bold bg-emerald-500/15 text-emerald-800 dark:text-emerald-300 border border-emerald-500/30 group-hover:bg-emerald-400 group-hover:text-[#0d0d0d] group-hover:border-emerald-400 transition-colors inline-flex items-center gap-1 shadow-sm">
                           <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400 group-hover:text-[#0d0d0d]" />
-                          <span>Credly Verified</span>
+                          <span>{providerLabel}</span>
                         </span>
                       )}
                       {isSecurity && (
@@ -77,7 +87,7 @@ export function Certifications() {
                 <div className="flex items-center justify-between sm:justify-end gap-4 pt-2 sm:pt-0">
                   {hasCredential && (
                     <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono-tech font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 bg-emerald-500/10 group-hover:bg-emerald-400 group-hover:text-[#0d0d0d] group-hover:border-emerald-400 transition-all">
-                      <span>View Credly Badge</span>
+                      <span>View Credential</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </span>
                   )}
@@ -103,7 +113,7 @@ export function Certifications() {
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono-tech text-[#77756f]">
           <span>TOTAL CERTIFICATIONS RECORDED: {CERTIFICATIONS.length}</span>
           <span className="text-emerald-700 dark:text-emerald-400 font-bold">
-            VERIFIED CREDLY BADGES &amp; ACCREDITED CERTIFICATIONS
+            VERIFIED CREDENTIALS &amp; ACCREDITED CERTIFICATIONS
           </span>
         </div>
       </div>
