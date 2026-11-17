@@ -120,7 +120,7 @@ export function Navigation() {
 
             <a
               href={PROFILE.resumeUrl}
-              download="Rusaick_Mufthi_CyberSecurity_CV.pdf"
+              download="Rusaick_Mufthi_IT Support_CV.pdf"
               className="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-mono-tech uppercase tracking-wider border border-emerald-500/40 bg-emerald-500/10 text-emerald-300 hover:bg-emerald-400 hover:text-[#0d0d0d] transition-all duration-300 shadow-sm"
             >
               <span>Résumé</span>
@@ -195,7 +195,7 @@ export function Navigation() {
             </div>
             <a
               href={PROFILE.resumeUrl}
-              download="Rusaick_Mufthi_CyberSecurity_CV.pdf"
+              download="Rusaick_Mufthi_IT Support_CV.pdf"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full text-center py-3 rounded-xl bg-emerald-400 text-[#0d0d0d] font-mono-tech text-xs font-bold tracking-wider uppercase shadow-md"
             >

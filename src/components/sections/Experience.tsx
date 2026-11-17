@@ -43,9 +43,6 @@ export function Experience() {
                       <span className="font-mono-tech text-xs text-[#0d0d0d] font-bold px-2.5 py-0.5 rounded bg-white border border-[#0d0d0d]/10">
                         {edu.period}
                       </span>
-                      <span className="font-mono-tech text-[11px] text-emerald-700 font-semibold">
-                        Degree / Diploma
-                      </span>
                     </div>
 
                     <h4 className="text-lg font-bold text-[#0d0d0d]">

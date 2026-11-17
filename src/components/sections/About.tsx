@@ -260,7 +260,7 @@ export function About() {
               {/* Download CV (PDF) Button */}
               <a
                 href={PROFILE.resumeUrl}
-                download="Rusaick_Mufthi_CyberSecurity_CV.pdf"
+                download="Rusaick_Mufthi_IT Support_CV.pdf"
                 className="group inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#0d0d0d] text-xs font-mono-tech text-emerald-400 hover:bg-emerald-400 hover:text-[#0d0d0d] hover:shadow-[0_0_15px_rgba(52,211,153,0.4)] hover:-translate-y-0.5 transition-all duration-300 font-bold shadow-md"
               >
                 <FileText className="w-4 h-4 group-hover:scale-110 transition-transform" />

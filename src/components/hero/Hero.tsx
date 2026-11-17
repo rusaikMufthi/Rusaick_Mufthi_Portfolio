@@ -117,7 +117,7 @@ export function Hero() {
 
               <a
                 href={PROFILE.resumeUrl}
-                download="Rusaick_Mufthi_CyberSecurity_CV.pdf"
+                download="Rusaick_Mufthi_IT Support_CV.pdf"
                 className="group px-6 py-3.5 rounded-full bg-white dark:bg-[#12161f] border border-emerald-600/40 dark:border-emerald-500/40 text-[#0d0d0d] dark:text-[#f4f2ee] font-mono-tech text-xs uppercase tracking-wider hover:bg-emerald-500 hover:border-emerald-500 hover:text-[#0d0d0d] dark:hover:bg-emerald-400 dark:hover:border-emerald-400 dark:hover:text-[#0d0d0d] hover:shadow-[0_0_20px_rgba(52,211,153,0.35)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center gap-2 font-semibold shadow-sm"
               >
                 <Download className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 group-hover:text-[#0d0d0d] group-hover:translate-y-0.5 transition-all duration-300" />

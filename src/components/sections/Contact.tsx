@@ -154,7 +154,7 @@ export function Contact() {
               </div>
               <a
                 href={PROFILE.resumeUrl}
-                download="Rusaick_Mufthi_CyberSecurity_CV.pdf"
+                download="Rusaick_Mufthi_IT Support_CV.pdf"
                 className="flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-bold hover:bg-emerald-400 hover:text-[#0d0d0d] hover:shadow-[0_0_15px_rgba(52,211,153,0.4)] transition-all duration-300"
               >
                 <Download className="w-3.5 h-3.5" />

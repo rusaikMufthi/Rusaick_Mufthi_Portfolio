@@ -97,7 +97,7 @@ export const PROFILE = {
   whatsappUrl: "https://wa.me/94754720047?text=Hello%20Rusaick%2C%20I%20visited%20your%20security%20portfolio.",
   linkedin: "https://linkedin.com/in/rusaick-mufthi",
   github: "https://github.com/rusaikMufthi",
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/Rusaick_Mufthi_IT_Support_CV.pdf",
 };
 
 export const NAV_ITEMS = [
@@ -268,11 +268,11 @@ export const CERTIFICATIONS: Certification[] = [
     credentialUrl: "https://www.credly.com/badges/2c229842-2b95-49b9-ac84-cadf5cccba45",
   },
   {
-    id: "c-aws-ml-foundations",
-    name: "AWS Educate Machine Learning Foundations",
-    issuer: "Amazon Web Services Training and Certification",
-    category: "AI & ML",
-    credentialUrl: "https://www.credly.com/badges/a4aa3e0c-ad2d-469a-8eca-116968489636/linked_in_profile",
+    id: "c-linkedin-ai-cybersecurity",
+    name: "Artificial Intelligence for Cybersecurity",
+    issuer: "LinkedIn Learning Community",
+    category: "Security",
+    credentialUrl: "https://www.linkedin.com/learning/certificates/eb30ca383e06897a55719d7d5860067ee6d4ac5f5f506d6f16a3173656bb50a8/",
   },
   {
     id: "c-commbank-cybersecurity",
@@ -282,11 +282,11 @@ export const CERTIFICATIONS: Certification[] = [
     credentialUrl: "https://www.theforage.com/completion-certificates/2sNmYuurxgpFYawco/x52Jy9s26xNbZkTQ7_2sNmYuurxgpFYawco_JJuN9d6rDqfQCNkva_1767642737642_completion_certificate.pdf",
   },
   {
-    id: "c-linkedin-ai-cybersecurity",
-    name: "Artificial Intelligence for Cybersecurity",
-    issuer: "LinkedIn Learning Community",
-    category: "Security",
-    credentialUrl: "https://www.linkedin.com/learning/certificates/eb30ca383e06897a55719d7d5860067ee6d4ac5f5f506d6f16a3173656bb50a8/",
+    id: "c-aws-ml-foundations",
+    name: "AWS Educate Machine Learning Foundations",
+    issuer: "Amazon Web Services Training and Certification",
+    category: "AI & ML",
+    credentialUrl: "https://www.credly.com/badges/a4aa3e0c-ad2d-469a-8eca-116968489636/linked_in_profile",
   },
   {
     id: "c-forage-aws-solutions",
